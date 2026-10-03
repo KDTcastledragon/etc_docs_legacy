@@ -9,41 +9,24 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 
-<body>
-    <div class="wrap">
-        <header class="page-head">
-            <a class="back-link" href="./index.html">&larr; 과목 목록</a>
-        </header>
-
-        <section class="chapter">
-            <div class="theme-list">
-                <button class="theme-button" type="button" data-theme="t1">
-                    <span class="no">#1</span>함수의 극한
-                </button>
-                <button class="theme-button" type="button" data-theme="t2">
-                    <span class="no">#2</span>함수의 우극한과 좌극한
-                </button>
-                <button class="theme-button" type="button" data-theme="t3">
-                    <span class="no">#3</span>함수의 극한값의 성질
-                </button>
-                <button class="theme-button" type="button" data-theme="t4">
-                    <span class="no">#4</span>함수의 극한값의 계산
-                </button>
-            </div>
-        </section>
+<body class="note-page">
+    <div class="top-bar">
+        <a class="back-link" href="./index.html">&larr; 뒤로가기</a>
     </div>
 
-    <!-- 테마 본문. 평소엔 숨겨두고 모달이 열릴 때 복사해 간다. -->
-    <div class="theme-source" hidden>
+    <main class="note-grid">
 
-        <article id="t1" data-title="#1 함수의 극한">
+        <section class="note">
+            <h2>#1 함수의 극한</h2>
+
             <h3>\(x \to a\)일 때 함수 \(f(x)\)의 극한값 또는 극한</h3>
             <ul>
                 <li>함수 \(f(x)\)에서 \(x\)의 값이 \(a\)와 같지 않으면서 \(a\)에 한없이 가까워질 때, \(f(x)\)의 값이 일정한 값 \(L\)에 한없이
                     가까워지면 <em>\(x\)의 값이 \(a\)에 한없이 가까워질 때, 함숫값 \(f(x)\)는 \(L\)에 수렴한다.</em></li>
                 <li>
-                    \[ \lim_{x \to a} f(x) = L \quad \text{또는} \quad x \to a \text{일 때 } f(x) \to L \]
-                    이때 \(L\)을 \(x \to a\)일 때 함수 \(f(x)\)의 극한값 또는 극한이라 한다.
+                    \[ \lim_{x \to a} f(x) = L \]
+                    또는 \(x \to a\)일 때 \(f(x) \to L\)
+                    <br>이때 \(L\)을 \(x \to a\)일 때 함수 \(f(x)\)의 극한값 또는 극한이라 한다.
                 </li>
             </ul>
 
@@ -53,50 +36,62 @@
                     하고 다음과 같이 표현한다.
                     \[ \lim_{x \to a} f(x) = \infty \]
                 </li>
-                <li>함수 \(f(x)\)에서 \(x \to a\)일 때 \(f(x)\)의 값이 음수이면서 그 절댓값이 한없이 커지면 <em>\(x \to a\)일 때 \(f(x)\)는 음의
-                    무한대로 발산한다.</em>고 하고 다음과 같이 표현한다.
+                <li>함수 \(f(x)\)에서 \(x \to a\)일 때 \(f(x)\)의 값이 음수이면서 그 절댓값이 한없이 커지면 <em>\(x \to a\)일 때 \(f(x)\)는
+                    음의 무한대로 발산한다.</em>고 하고 다음과 같이 표현한다.
                     \[ \lim_{x \to a} f(x) = -\infty \]
                 </li>
             </ul>
-        </article>
+        </section>
 
-        <article id="t2" data-title="#2 함수의 우극한과 좌극한">
+        <section class="note">
+            <h2>#2 함수의 우극한과 좌극한</h2>
+
             <h3>우극한</h3>
             <ul>
-                <li>\(x \to a+\)일 때 함수 \(f(x)\)가 일정한 값 \(L\)에 한없이 가까워지면 \(L\)을 \(x \to a+\)일 때의 \(f(x)\)의 우극한이라 한다.
+                <li>\(x \to a+\)일 때 함수 \(f(x)\)가 일정한 값 \(L\)에 한없이 가까워지면 \(L\)을 \(x \to a+\)일 때의 \(f(x)\)의
+                    우극한이라 한다.
                     \[ \lim_{x \to a+} f(x) = L \]
                 </li>
             </ul>
 
             <h3>좌극한</h3>
             <ul>
-                <li>\(x \to a-\)일 때 함수 \(f(x)\)가 일정한 값 \(M\)에 한없이 가까워지면 \(M\)을 \(x \to a-\)일 때의 \(f(x)\)의 좌극한이라 한다.
+                <li>\(x \to a-\)일 때 함수 \(f(x)\)가 일정한 값 \(M\)에 한없이 가까워지면 \(M\)을 \(x \to a-\)일 때의 \(f(x)\)의
+                    좌극한이라 한다.
                     \[ \lim_{x \to a-} f(x) = M \]
                 </li>
             </ul>
 
             <h3>함수의 극한</h3>
             <ul>
-                <li>\(x \to a\)일 때 함수 \(f(x)\)의 극한값이 \(L\)이면 \(x \to a+\)일 때의 우극한, \(x \to a-\)일 때의 좌극한이 존재하면서 그 값이
-                    모두 \(L\)과 같다.
-                    \[ \lim_{x \to a+} f(x) = \lim_{x \to a-} f(x) = L \iff \lim_{x \to a} f(x) = L \]
+                <li>\(x \to a\)일 때 함수 \(f(x)\)의 극한값이 \(L\)이면 \(x \to a+\)일 때의 우극한, \(x \to a-\)일 때의 좌극한이
+                    존재하면서 그 값이 모두 \(L\)과 같다.
+                    \[ \lim_{x \to a+} f(x) = \lim_{x \to a-} f(x) = L \]
+                    \[ \iff \lim_{x \to a} f(x) = L \]
                 </li>
             </ul>
-        </article>
+        </section>
 
-        <article id="t3" data-title="#3 함수의 극한값의 성질">
+        <section class="note">
+            <h2>#3 함수의 극한값의 성질</h2>
+
             <h3>두 함수 \(f(x)\), \(g(x)\)에 대하여</h3>
-            <p>\(\displaystyle \lim_{x \to a} f(x) = L,\ \lim_{x \to a} g(x) = M\) &nbsp;(\(L\), \(M\)은 실수)</p>
+            <p>\(\displaystyle \lim_{x \to a} f(x) = L\), &nbsp;\(\displaystyle \lim_{x \to a} g(x) = M\)
+                &nbsp;(\(L\), \(M\)은 실수)</p>
             <ul>
-                <li>\[ \lim_{x \to a} cf(x) = c \lim_{x \to a} f(x) = cL \quad (c \text{는 상수}) \]</li>
-                <li>\[ \lim_{x \to a} \{ f(x) + g(x) \} = \lim_{x \to a} f(x) + \lim_{x \to a} g(x) = L + M \]</li>
-                <li>\[ \lim_{x \to a} \{ f(x) - g(x) \} = \lim_{x \to a} f(x) - \lim_{x \to a} g(x) = L - M \]</li>
-                <li>\[ \lim_{x \to a} f(x)g(x) = \lim_{x \to a} f(x) \lim_{x \to a} g(x) = LM \]</li>
-                <li>\[ \lim_{x \to a} \frac{f(x)}{g(x)} = \frac{\displaystyle \lim_{x \to a} f(x)}{\displaystyle \lim_{x \to a} g(x)} = \frac{L}{M} \quad (M \neq 0) \]</li>
+                <li>\[ \lim_{x \to a} cf(x) = c \lim_{x \to a} f(x) = cL \]
+                    (\(c\)는 상수)
+                </li>
+                <li>\[ \lim_{x \to a} \{ f(x) + g(x) \} = L + M \]</li>
+                <li>\[ \lim_{x \to a} \{ f(x) - g(x) \} = L - M \]</li>
+                <li>\[ \lim_{x \to a} f(x)g(x) = LM \]</li>
+                <li>\[ \lim_{x \to a} \frac{f(x)}{g(x)} = \frac{L}{M} \quad (M \neq 0) \]</li>
             </ul>
-        </article>
+        </section>
 
-        <article id="t4" data-title="#4 함수의 극한값의 계산">
+        <section class="note">
+            <h2>#4 함수의 극한값의 계산</h2>
+
             <h3>\(\dfrac{0}{0}\) 꼴</h3>
             <ul>
                 <li>유리함수는 먼저 분모, 분자를 인수분해한 다음 약분한다.</li>
@@ -118,7 +113,8 @@
             <h3>\(\infty \times 0\) 꼴</h3>
             <ul>
                 <li>적당히 변형하면 다음 꼴로 나타낼 수 있다.
-                    \[ \infty \times c,\quad \frac{\infty}{c},\quad \frac{c}{\infty},\quad \frac{c}{0},\quad \frac{0}{0},\quad \frac{\infty}{\infty} \]
+                    \[ \infty \times c, \quad \frac{\infty}{c}, \quad \frac{c}{\infty} \]
+                    \[ \frac{c}{0}, \quad \frac{0}{0}, \quad \frac{\infty}{\infty} \]
                 </li>
             </ul>
 
@@ -129,57 +125,21 @@
                 <li>\(\displaystyle \lim_{x \to a} \frac{f(x)}{g(x)} = \alpha\) (\(\alpha\)는 \(0\)이 아닌 실수) 이고
                     \(\displaystyle \lim_{x \to a} f(x) = 0\) 이면 \(\displaystyle \lim_{x \to a} g(x) = 0\)</li>
             </ul>
-        </article>
+        </section>
 
-    </div>
-
-    <dialog class="theme-modal" id="themeModal">
-        <div class="theme-modal-head">
-            <strong id="themeModalTitle"></strong>
-            <button type="button" class="theme-modal-close" aria-label="닫기">&times;</button>
-        </div>
-        <div class="theme-modal-body" id="themeModalBody"></div>
-    </dialog>
+    </main>
 
     <script>
-        MathJax = {
-            tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] },
-            // 모달이 열릴 때 수동으로 돌린다. 페이지 로드시 숨은 원본까지 훑을 이유가 없다.
-            startup: { typeset: false }
+        // 구분자를 JS 문자열로 적을 때는 백슬래시를 두 번 써야 한다.
+        // '\(' 로 쓰면 JS 가 '(' 로 읽어 본문의 모든 괄호를 수식으로 잡아먹는다.
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']]
+            }
         };
     </script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-    <script>
-        const modal = document.getElementById("themeModal");
-        const modalTitle = document.getElementById("themeModalTitle");
-        const modalBody = document.getElementById("themeModalBody");
-
-        document.querySelectorAll(".theme-button").forEach(button => {
-            button.addEventListener("click", () => {
-                const source = document.getElementById(button.dataset.theme);
-                if (!source) return;
-
-                modalTitle.textContent = source.dataset.title;
-                modalBody.innerHTML = source.innerHTML;
-                modal.showModal();
-
-                // 복사해 넣은 뒤에 식을 렌더링한다.
-                // CDN 이 아직 안 받아졌을 때 바로 누르면 날것의 LaTeX 이 보인다.
-                // startup.promise 로 준비될 때까지 기다린다.
-                MathJax.startup.promise
-                    .then(() => MathJax.typesetPromise([modalBody]))
-                    .catch(error => console.error("MathJax 렌더 실패", error));
-            });
-        });
-
-        modal.querySelector(".theme-modal-close").addEventListener("click", () => modal.close());
-
-        // 바깥을 누르면 닫는다. dialog 는 backdrop 클릭도 자기 자신이 target 이다.
-        modal.addEventListener("click", event => {
-            if (event.target === modal) modal.close();
-        });
-    </script>
 </body>
 
 </html>
