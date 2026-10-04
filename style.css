@@ -105,61 +105,6 @@ body {
     font-size: 13px;
 }
 
-/* ===== 과목 페이지의 챕터와 테마 ===== */
-.chapter {
-    margin-top: 28px;
-}
-
-.chapter > h2 {
-    margin: 0 0 12px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--line);
-    font-size: 18px;
-    letter-spacing: -0.02em;
-}
-
-.theme-list {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-}
-
-@media (min-width: 640px) {
-    .theme-list {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* 지금은 눌러도 아무 일 없다. 나중에 모달을 여는 버튼이 된다. */
-.theme-button {
-    padding: 14px 16px;
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    background: var(--surface);
-    color: var(--text);
-    font-family: inherit;
-    font-size: 15px;
-    text-align: left;
-    cursor: pointer;
-    transition: border-color 0.15s, background 0.15s;
-}
-
-.theme-button:hover {
-    border-color: var(--accent);
-    background: var(--accent-soft);
-}
-
-/* 번호와 제목이 붙어 "Theme 1x" 처럼 읽히지 않도록 칸을 확실히 띄운다. */
-.theme-button .no {
-    display: inline-block;
-    min-width: 62px;
-    margin-right: 10px;
-    color: var(--accent);
-    font-weight: 700;
-    font-size: 13px;
-}
-
-
 /* ===== 본문 펼침 페이지 ===== */
 /* 좌측 끝에 붙는 뒤로가기 줄. 내용 폭과 무관하게 화면 왼쪽 끝을 쓴다. */
 .note-page {
@@ -167,6 +112,9 @@ body {
 }
 
 .top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 14px 18px;
 }
 
@@ -177,18 +125,45 @@ body {
     font-weight: 700;
 }
 
-/* PDF 가 2단이라 그대로 2단으로 깐다. 좁아지면 1단. */
+.wrongnote-btn {
+    padding: 6px 14px;
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.wrongnote-btn:hover {
+    background: var(--accent);
+    color: #fff;
+}
+
+/* 왼쪽→오른쪽으로 먼저 읽고 그다음 위→아래로 넘어가도록 grid 기본 auto-flow(row)를 쓴다.
+   align-items:start라서 카드마다 높이가 달라도 grid 셀만 비고, .note 테두리는 내용만큼만
+   그려지니 전에 겪은 "짧은 카드 밑에 테두리 있는 빈 박스" 문제는 생기지 않는다. */
 .note-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 16px;
-    padding: 0 18px;
     align-items: start;
+    gap: 16px;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 0 24px;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 700px) {
     .note-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1100px) {
+    .note-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
 
@@ -200,11 +175,149 @@ body {
 }
 
 .note > h2 {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
     margin: 0 0 4px;
     padding-bottom: 10px;
     border-bottom: 1px solid var(--line);
     font-size: 17px;
     letter-spacing: -0.02em;
+}
+
+/* ===== 심화 버튼 / 모달 ===== */
+.deepen-btn {
+    flex: none;
+    padding: 4px 10px;
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.deepen-btn:hover {
+    background: var(--accent);
+    color: #fff;
+}
+
+.deepen-modal {
+    position: relative;
+    width: min(640px, 90vw);
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 24px 26px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
+    color: var(--text);
+}
+
+.deepen-modal::backdrop {
+    background: rgba(29, 42, 36, 0.45);
+}
+
+.deepen-modal h2 {
+    margin: 0 0 14px;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+}
+
+.deepen-modal h3 {
+    margin: 18px 0 8px;
+    padding-left: 11px;
+    border-left: 3px solid var(--accent);
+    font-size: 15px;
+    letter-spacing: -0.02em;
+}
+
+.deepen-modal ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.deepen-modal li {
+    margin-bottom: 10px;
+    word-break: keep-all;
+}
+
+.deepen-modal em {
+    color: var(--accent);
+    font-style: normal;
+}
+
+.deepen-modal h4 {
+    margin: 14px 0 6px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.deepen-modal p {
+    margin: 0 0 10px;
+    word-break: keep-all;
+}
+
+.deepen-modal table {
+    width: 100%;
+    margin: 4px 0 14px;
+    border-collapse: collapse;
+    font-size: 14px;
+    text-align: center;
+}
+
+.deepen-modal th,
+.deepen-modal td {
+    padding: 8px 10px;
+    border: 1px solid var(--line);
+}
+
+.deepen-modal th {
+    background: var(--accent-soft);
+}
+
+.callout {
+    margin: 12px 0;
+    padding: 10px 14px;
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--accent);
+    border-radius: 8px;
+    background: var(--accent-soft);
+    font-size: 14px;
+    word-break: keep-all;
+}
+
+.callout .tag {
+    display: inline-block;
+    margin-bottom: 4px;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.problem-entry + .problem-entry {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+}
+
+.deepen-close {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    border: none;
+    background: none;
+    color: var(--muted);
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.deepen-close:hover {
+    color: var(--text);
 }
 
 /* 소제목은 PDF 의 ◈ 자리다. */
@@ -235,9 +348,76 @@ body {
     font-style: normal;
 }
 
+.note h4 {
+    margin: 14px 0 6px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.note table {
+    width: 100%;
+    margin: 4px 0 14px;
+    border-collapse: collapse;
+    font-size: 14px;
+    text-align: center;
+}
+
+.note th,
+.note td {
+    padding: 8px 10px;
+    border: 1px solid var(--line);
+}
+
+.note th {
+    background: var(--accent-soft);
+}
+
 /* 긴 수식이 칸을 밀어내지 않도록 그 줄만 가로로 넘긴다. */
 .note mjx-container[display="true"] {
     overflow-x: auto;
     overflow-y: hidden;
     padding: 2px 0;
+}
+
+/* ===== 그래프 ===== */
+.graph-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin: 12px 0;
+}
+
+.graph {
+    margin: 0;
+    text-align: center;
+}
+
+.graph svg {
+    display: block;
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.graph figcaption {
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.glabel {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.glabel.accent {
+    color: var(--accent);
+}
+
+.glabel.faint {
+    opacity: 0.7;
 }
