@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>기본 단어 · 정리</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body class="note-page voca-page">
+    <div class="top-bar">
+        <a class="back-link" href="./index.html">&larr; 뒤로가기</a>
+    </div>
+
+    <main class="voca-list">
+
+        <div class="voca-card">
+            <p><span class="voca-num">0001.</span> Since the
+                <button type="button" class="voca-word" onclick="document.getElementById('voca-0001').showModal()">advent</button>
+                of jet aircraft, travel has been sped up.</p>
+        </div>
+
+        <div class="voca-card">
+            <p><span class="voca-num">0002.</span> A storm
+                <button type="button" class="voca-word" onclick="document.getElementById('voca-0002').showModal()">arose</button>
+                during the night.</p>
+            <p><span class="voca-num">0002.</span> We
+                <button type="button" class="voca-word" onclick="document.getElementById('voca-0002').showModal()">arose</button>
+                early on Saturday morning.</p>
+            <p><span class="voca-num">0002.</span> Emotional or mental problems can
+                <button type="button" class="voca-word" onclick="document.getElementById('voca-0002').showModal()">arise</button>
+                from a physical cause.</p>
+        </div>
+
+        <div class="voca-card">
+            <p><span class="voca-num">0003.</span> It's a subject that has
+                <button type="button" class="voca-word" onclick="document.getElementById('voca-0003').showModal()">aroused</button>
+                a lot of interest.</p>
+        </div>
+
+        <div class="voca-card">
+            <p><span class="voca-num">0004.</span> The cherry tree is beginning to
+                <button type="button" class="voca-word" onclick="document.getElementById('voca-0004').showModal()">blossom</button>.</p>
+        </div>
+
+    </main>
+
+    <dialog id="voca-0001" class="deepen-modal voca-modal">
+        <form method="dialog">
+                <button type="submit" class="deepen-close" aria-label="닫기">&times;</button>
+            </form>
+        <p class="voca-head"><strong>0001. advent</strong> <span class="voca-phon">[ǽdvent]</span></p>
+        <p class="voca-def"><span class="voca-pos">n</span> 1. 도래, 출현 <span class="voca-endef">[The arrival of a notable person or thing]</span></p>
+        <p class="voca-trans voca-trans-group">▶ 제트기의 <strong><u>출현</u></strong> 이후, 여행이 가속화되었다.</p>
+    </dialog>
+
+    <dialog id="voca-0002" class="deepen-modal voca-modal">
+        <form method="dialog">
+                <button type="submit" class="deepen-close" aria-label="닫기">&times;</button>
+            </form>
+        <p class="voca-head"><strong>0002. arise</strong> <span class="voca-phon">[əráiz]</span></p>
+        <p class="voca-def"><span class="voca-pos">v</span> 1. 생기다, 발생하다
+            <span class="voca-endef">[(Of a problem, opportunity, or situation) emerge; become apparent]</span></p>
+        <p class="voca-def">2. 일어나다 <span class="voca-endef">[Get or stand up]</span></p>
+        <p class="voca-def">3. (무엇의 결과로) 유발되다
+            <span class="voca-endef">[To happen as a result of a particular situation]</span></p>
+        <p class="voca-trans voca-trans-group">▶ 밤사이에 폭풍이 <strong><u>일었다</u></strong>.</p>
+        <p class="voca-trans">▶ 우리는 토요일 아침 일찍 <strong><u>일어났다</u></strong>.</p>
+        <p class="voca-trans">▶ 신체적 요인 때문에 정서적 또는 정신적 문제가 <strong><u>유발될</u></strong> 수도 있다.</p>
+    </dialog>
+
+    <dialog id="voca-0003" class="deepen-modal voca-modal">
+        <form method="dialog">
+                <button type="submit" class="deepen-close" aria-label="닫기">&times;</button>
+            </form>
+        <p class="voca-head"><strong>0003. arouse</strong> <span class="voca-phon">[əráuz]</span></p>
+        <p class="voca-def"><span class="voca-pos">v</span> 1. 불러일으키다
+            <span class="voca-endef">[Evoke or awaken a feeling, emotion, or response]</span></p>
+        <p class="voca-trans voca-trans-group">▶ 그것은 많은 관심을 <strong><u>불러일으킨</u></strong> 과목이다.</p>
+    </dialog>
+
+    <dialog id="voca-0004" class="deepen-modal voca-modal">
+        <form method="dialog">
+                <button type="submit" class="deepen-close" aria-label="닫기">&times;</button>
+            </form>
+        <p class="voca-head"><strong>0004. blossom</strong> <span class="voca-phon">[blάsəm]</span></p>
+        <p class="voca-def"><span class="voca-pos">v</span> 1. 꽃이 피다, 꽃을 피우다
+            <span class="voca-endef">[(Of a tree or bush) produce flowers or masses of flowers]</span></p>
+        <p class="voca-trans voca-trans-group">▶ 벚나무에 <strong><u>꽃이 피기</u></strong> 시작한다.</p>
+    </dialog>
+
+    <script>
+        document.querySelectorAll('dialog').forEach(function (d) {
+            d.addEventListener('click', function (e) {
+                if (e.target === d) d.close();
+            });
+        });
+    </script>
+</body>
+
+</html>
