@@ -478,43 +478,28 @@ button.subject-card {
 }
 
 .voca-card {
+    display: block;
+    width: 100%;
+    border: none;
     background: #d6ece0;
+    color: inherit;
+    font: inherit;
+    text-align: left;
     border-radius: 10px;
     padding: 14px 18px;
-}
-
-.voca-card p {
-    margin: 0 0 8px;
     font-size: 14px;
     line-height: 1.7;
+    cursor: pointer;
+    transition: background 0.15s;
 }
 
-.voca-card p:last-child {
-    margin-bottom: 0;
+.voca-card:hover {
+    background: #c3e3d4;
 }
 
 .voca-num {
     color: var(--muted);
     margin-right: 2px;
-}
-
-.voca-word {
-    border: none;
-    background: #d6ece0;
-    color: inherit;
-    font: inherit;
-    font-size: inherit;
-    font-weight: 700;
-    text-decoration: underline;
-    padding: 4px 8px;
-    margin: 0 1px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.voca-word:hover {
-    background: var(--accent);
-    color: #fff;
 }
 
 .voca-modal {
